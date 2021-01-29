@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgettoTnvAndroid">
-        <activity android:name=".ModificaPasswordActivity"></activity>
+        <activity android:name=".ModificaPasswordActivity">
+        </activity>
         <activity android:name=".GestisciUtentiActivity" ></activity>
         <activity android:name=".HomeActivity" ></activity>
         <activity android:name=".RegistrazioneActivity" ></activity>
