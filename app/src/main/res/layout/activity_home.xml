@@ -42,14 +42,76 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"/>
 
-            <!-- Home section dati -->
-            <TextView
-                android:layout_width="wrap_content"
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home_label_section_dati"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:orientation="horizontal">
+
+                <!-- Home section dati -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/home_label_section_dati"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_admin_label"
+                        android:textColor="@color/black"
+                        android:visibility="visible"
+                        android:textStyle="bold"
+                        android:gravity="right"
+                        android:textSize="20dp"/>-->
+
+                    <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="right"
+                        android:textColor="@color/black"
+                        android:padding="4dp"
+                        android:visibility="gone"
+                        android:text="@string/home_admin_label"/>
+
+                    <!--<TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:gravity="right"
+                        android:textColor="@color/black"
+                        android:padding="4dp"
+                        android:text="@string/home_admin_label"
+                        android:drawableStart="@drawable/icon_admin3"
+                        android:drawablePadding="2dp"/>-->
+
+
+                    <!--TODO icona admin-->
+
+<!--                </LinearLayout>-->
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
 
             <Space
                 android:layout_width="wrap_content"
@@ -247,6 +309,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"/>
 
+            <!-- Bottone gestisci utenti -->
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/btn_green"
+                android:text="@string/home_btn_gestisci_utenti"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                android:textSize="26dp"
+                android:textColor="@color/white"/>
 
             <!-- Bottone logout -->
 
@@ -258,6 +332,7 @@
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:textSize="26dp"
+                android:padding="10dp"
                 android:textColor="@color/white"/>
 
 
