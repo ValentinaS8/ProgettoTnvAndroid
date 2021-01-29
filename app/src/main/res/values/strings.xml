@@ -8,4 +8,20 @@
     <string name="btn_accedi">Accedi</string>
     <string name="btn_home">Home</string>
     <string name="btn_registrati"><u>Nuovo utente? Registrati</u></string>
+    <string name="home_title">Home</string>
+    <string name="home_label_section_dati">I tuoi dati:</string>
+    <string name="home_label_citta_di_provenienza">Città:</string>
+    <string name="home_label_data_nascita">Data di nascita:</string>
+    <string name="home_label_username">Username:</string>
+    <string name="home_label_password">Password:</string>
+    <string name="home_btn_logout">Logout</string>
+    <string name="btn_modifica_password"><u>Modifica password</u></string>
+    <string name="registrazione_title">Registrazione</string>
+    <string name="label_conferma_password">Conferma password</string>
+    <string name="label_citta_di_provenienza">Città di provenienza</string>
+    <string name="prompt_citta_di_provenienza">Città di provenienza</string>
+    <string name="label_data_di_nascita">Data di nascita</string>
+    <string name="prompt_data_di_nascita">Data di nascita</string>
+    <string name="btn_registrazione">Registrati</string>
+
 </resources>
