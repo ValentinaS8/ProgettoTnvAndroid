@@ -19,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
                     sleep(5000); //5s = 50000
 
                     //ora possiamo passare alla main activity
-                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(intent);
 
 
