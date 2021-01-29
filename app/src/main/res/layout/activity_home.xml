@@ -6,4 +6,278 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="26dp">
+
+            <!-- Titolo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/home_title"
+                android:textColor="@color/black"
+                android:textSize="36dp"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"/>
+
+            <!-- Welcome text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Benvenuto xxx!"
+                android:textColor="@color/black"
+                android:textSize="26dp"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+            <!-- Home section dati -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_label_section_dati"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+
+            <!-- User field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <!-- Label user -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingRight="56dp">
+
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_label_username"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+                <!-- Value user -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Value -->
+                    <TextView android:id="@+id/user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marco"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+            <!-- Password field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <!-- Password data -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingRight="61dp">
+
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_label_password"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+                <!-- Value password -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Value -->
+                    <TextView android:id="@+id/password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="password"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+            <!-- Città field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <!-- Città data -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingRight="122dp">
+
+
+                    <!-- Label città -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_label_citta_di_provenienza"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+                <!-- Value città -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Value -->
+                    <TextView android:id="@+id/citta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quartu S.Elena"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+
+
+            <!-- Data nascita field -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <!-- Data nascita data -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingRight="6dp">
+
+
+                    <!-- Label data nascita -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_label_data_nascita"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+                <!-- Value città -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Value data nascita -->
+                    <TextView android:id="@+id/data_nascita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="02/01/2020"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"/>
+
+
+            <!-- Bottone logout -->
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/btn_green"
+                android:text="@string/home_btn_logout"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:textSize="26dp"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_modifica_password"
+                android:layout_gravity="center"
+                android:background="?android:selectableItemBackground"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                android:textColor="@color/color_hyperlink"/>
+
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,14 +11,14 @@
         android:theme="@style/Theme.ProgettoTnvAndroid">
         <activity android:name=".ModificaPasswordActivity"></activity>
         <activity android:name=".GestisciUtentiActivity" ></activity>
-        <activity android:name=".HomeActivity" ></activity>
+        <activity android:name=".HomeActivity" ><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity android:name=".RegistrazioneActivity" ></activity>
         <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" ></activity>
     </application>
