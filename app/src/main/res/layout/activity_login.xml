@@ -6,13 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="26dp">
+
+        <!-- Titolo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login_title"
+            android:textColor="@color/black"
+            android:textSize="36dp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
+
+        <!-- Label user -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_username"
+            android:textColor="@color/black"
+            android:textSize="26dp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"/>
+
+        <!-- Field user -->
+        <EditText android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_username"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"/>
+
+        <!-- Label password-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_password"
+            android:textColor="@color/black"
+            android:textSize="26dp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8dp"/>
+
+        <!-- Field password -->
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/prompt_username"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"/>
+
+        <!-- Bottone Accedi -->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/btn_green"
+            android:text="@string/btn_accedi"
+            android:layout_gravity="center"
+            android:textSize="26dp"
+            android:textColor="@color/white"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"/>
+
+        <!-- Bottone registrati -->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_registrati"
+            android:layout_gravity="center"
+            android:background="?android:selectableItemBackground"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:textColor="@color/color_hyperlink"/>
+
+
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
