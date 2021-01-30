@@ -11,4 +11,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+
+    @Override
+    /**
+     * Evita di tornare all'activity precedente con il tasto indietro
+     */
+    public void onBackPressed() {
+        return;
+    }
 }
