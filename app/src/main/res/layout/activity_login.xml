@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:id="@+id/constraint_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,7 +73,7 @@
 
         <!-- Bottone Accedi -->
 
-        <Button
+        <Button android:id="@+id/btn_accedi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/btn_green"
@@ -87,7 +88,7 @@
 
         <!-- Bottone registrati -->
 
-        <Button
+        <Button android:id="@+id/btn_registrati"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_registrati"
