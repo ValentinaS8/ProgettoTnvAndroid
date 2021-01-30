@@ -12,27 +12,23 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.progettotnvandroid.model.UserList;
 import com.example.progettotnvandroid.model.Utente;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
     EditText username, password;
     Button btnAccedi, btnRegistrati;
 
+    //PATH Activity
     public final static String LOGIN_ACTIVITY_PATH = "com.example.progettotnvandroid.LoginActivity";
-
-
 
     /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
     private Context myContext;
@@ -61,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         // Get the widget reference from XML layout
         myCLayout = (ConstraintLayout) findViewById(R.id.constraint_layout);
 
-        // Set a click listener for CoordinatorLayout
+        // Set a click listener for CoordinatorLayout (layout di sfondo della nostra activity)
         myCLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,12 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         /*****************************************************************************************************/
 
-
         /* Model */
-        //Gestione creazione prima utenza di admin
-        /*DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.ITALIAN);
-        Date dateAdmin = new Date();
-        String dateAdminString = sdf.format(dateAdmin);*/
 
         String adminBirthdayDateString="01/01/1970";
         Date adminBirthdayDate= null;
@@ -104,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(utenteLoggato != null) {
                         //utente trovato
-                        goToHomeACtivity(utenteLoggato);
+                        goToHomeActivity(utenteLoggato);
 
                     }else{
                         //utente non trovato!
@@ -123,30 +114,36 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistrati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goToRegistrazioneActivity();
             }
         });
-
-
-
     }
 
-    private void goToHomeACtivity(Utente utenteLoggato) {
+    /**
+     * Reindirizzamento alla HomeActivity
+     * @param utenteLoggato
+     */
+    private void goToHomeActivity(Utente utenteLoggato) {
         Intent intent = new Intent(LoginActivity.this,
-                RegistrazioneActivity.class);
+                HomeActivity.class);
         intent.putExtra(LOGIN_ACTIVITY_PATH, utenteLoggato);
         startActivity(intent);
     }
 
+    /**
+     * Reindirizzamento alla RegistrazioneActivity
+     */
+    private void goToRegistrazioneActivity() {
+        Intent intent = new Intent(LoginActivity.this,
+                RegistrazioneActivity.class);
+        startActivity(intent);
+    }
 
     /**
      * Cerca un utente e se lo trova lo restituisce, altrimenti null
      * @return utente o null
      */
     private Utente getUtenteByLogin() {
-
-        //TODO recuperare lista utenti, controllare se esiste un utente con
-        // quello username e se la password è quella
 
         List<Utente> utenti =  UserList.getAllUtenti();
 
