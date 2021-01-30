@@ -78,6 +78,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/btn_green"
             android:text="@string/btn_accedi"
+            android:padding="10dp"
             android:layout_gravity="center"
             android:textSize="26dp"
             android:textColor="@color/white"/>

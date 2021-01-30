@@ -119,6 +119,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     /**
      * Evita di tornare all'activity precedente con il tasto indietro

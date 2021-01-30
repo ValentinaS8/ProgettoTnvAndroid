@@ -74,7 +74,8 @@
                         android:gravity="right"
                         android:textSize="20dp"/>-->
 
-                    <TextView android:layout_width="match_parent"
+                    <TextView android:id="@+id/text_admin"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
                         android:textStyle="bold"
@@ -136,10 +137,10 @@
                     <!-- Label -->
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/home_label_username"
                         android:textColor="@color/black"
-                        android:textSize="26dp"/>
+                        android:textSize="26dp" />
 
                 </LinearLayout>
 
@@ -150,12 +151,13 @@
                     android:orientation="vertical">
 
                     <!-- Value -->
-                    <TextView android:id="@+id/user"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/user"
+                        android:layout_width="63dp"
                         android:layout_height="wrap_content"
-                        android:text="Marco"
+                        android:text="Test"
                         android:textColor="@color/black"
-                        android:textSize="26dp"/>
+                        android:textSize="26dp" />
 
                 </LinearLayout>
 
@@ -311,7 +313,7 @@
 
             <!-- Bottone gestisci utenti -->
 
-            <Button
+            <Button android:id="@+id/btn_gestisci_utenti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/btn_green"
@@ -319,12 +321,13 @@
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:visibility="gone"
+                android:padding="10dp"
                 android:textSize="26dp"
                 android:textColor="@color/white"/>
 
             <!-- Bottone logout -->
 
-            <Button
+            <Button android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/btn_green"
@@ -336,7 +339,7 @@
                 android:textColor="@color/white"/>
 
 
-            <Button
+            <Button android:id="@+id/btn_modifica_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_modifica_password"
