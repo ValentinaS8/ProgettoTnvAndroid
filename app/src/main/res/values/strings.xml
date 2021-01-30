@@ -18,4 +18,11 @@
     <string name="btn_modifica_password"><u>Modifica password</u></string>
     <string name="home_admin_label">Admin</string>
     <string name="home_btn_gestisci_utenti">Gestisci utenti</string>
+    <string name="registrazione_title">Registrazione</string>
+    <string name="label_conferma_password">Conferma password</string>
+    <string name="label_citta_di_provenienza">Città di provenienza</string>
+    <string name="prompt_citta_di_provenienza">Città di provenienza</string>
+    <string name="label_data_di_nascita">Data di nascita</string>
+    <string name="prompt_data_di_nascita">Data di nascita</string>
+    <string name="btn_registrazione">Registrati</string>
 </resources>
