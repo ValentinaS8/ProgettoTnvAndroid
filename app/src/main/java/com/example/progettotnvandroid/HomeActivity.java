@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.progettotnvandroid.model.Utente;
@@ -20,7 +21,8 @@ import static com.example.progettotnvandroid.LoginActivity.LOGIN_ACTIVITY_PATH;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, testoAdmin, welcomeTextView;
+    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, welcomeTextView;
+    LinearLayout testoAdmin;
     Button btnLogout, btnModificaPassword, btnGestioneUtenti;
 
     /* Model */
