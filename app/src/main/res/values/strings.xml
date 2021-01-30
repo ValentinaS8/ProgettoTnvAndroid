@@ -25,4 +25,9 @@
     <string name="label_data_di_nascita">Data di nascita</string>
     <string name="prompt_data_di_nascita">Data di nascita</string>
     <string name="btn_registrazione">Registrati</string>
+    <string name="modifica_password_title">Modifica password</string>
+    <string name="label_nuova_password">Nuova password</string>
+    <string name="btn_aggiorna_password">Aggiorna password</string>
+    <string name="modifica_password_label_username">Username:</string>
+    <string name="modifica_password_label_password">Password:</string>
 </resources>
