@@ -21,8 +21,6 @@ import java.util.Date;
 
 public class RegistrazioneActivity extends AppCompatActivity {
 
-    //TODO - mettere mascheramento tastiera
-
     EditText username, password, confermaPassword, cittaProvenienza, dataNascita;
     Button btn_registrati;
     Date dataNascitaNuovoUtente = null;
