@@ -1,8 +1,9 @@
 package com.example.progettotnvandroid.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Utente {
+public class Utente implements Serializable {
     private int id;
     private String username;
     private String password;
@@ -19,6 +20,15 @@ public class Utente {
         this.citta = citta;
         this.dataNascita = dataNascita;
         this.isAdmin = isAdmin;
+    }
+
+    public Utente(String username, String password, String citta, Date dataNascita, boolean isAdmin, int id) {
+        this.username = username;
+        this.password = password;
+        this.citta = citta;
+        this.dataNascita = dataNascita;
+        this.isAdmin = isAdmin;
+        this.id = id;
     }
 
     public int getId() {
@@ -67,5 +77,24 @@ public class Utente {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    /**
+     * Creaimo una copia dell'utente
+     * @param utente
+     * @return utente clonato
+     */
+    public static Utente clonaUtente(Utente utente) {
+
+        Utente utenteClonato = new Utente(
+                utente.getUsername(),
+                utente.getPassword(),
+                utente.getCitta(),
+                utente.getDataNascita(),
+                utente.isAdmin(),
+                utente.getId()
+        );
+
+        return utenteClonato;
     }
 }
