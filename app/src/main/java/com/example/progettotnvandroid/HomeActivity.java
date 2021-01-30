@@ -91,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         btnModificaPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goToModificaPasswordActivity();
             }
         });
 
@@ -99,10 +99,11 @@ public class HomeActivity extends AppCompatActivity {
         btnGestioneUtenti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goToGestisciUtentiActivity();
             }
         });
     }
+
 
     @Override
     /**
@@ -120,4 +121,25 @@ public class HomeActivity extends AppCompatActivity {
                 LoginActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Reindirizzamento alla activity gestione utente
+     */
+    private void goToGestisciUtentiActivity() {
+
+        Intent intent = new Intent(HomeActivity.this,
+                GestisciUtentiActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Reindirizzamento alla activity modifica password
+     */
+    private void goToModificaPasswordActivity() {
+
+        Intent intent = new Intent(HomeActivity.this,
+                ModificaPasswordActivity.class);
+        startActivity(intent);
+    }
+
 }
