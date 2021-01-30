@@ -20,7 +20,7 @@ import static com.example.progettotnvandroid.LoginActivity.LOGIN_ACTIVITY_PATH;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, testoAdmin;
+    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, testoAdmin, welcomeTextView;
     Button btnLogout, btnModificaPassword, btnGestioneUtenti;
 
     /* Model */
@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         /* Riferimenti widget */
         userTextView = findViewById(R.id.user);
+        welcomeTextView = findViewById(R.id.welcome_text);
         passwordTextView = findViewById(R.id.password);
         cittaTextView = findViewById(R.id.citta);
         dataNascitaTextView = findViewById(R.id.data_nascita);
@@ -57,7 +58,9 @@ public class HomeActivity extends AppCompatActivity {
         /* valorizzazione dei widgets */
 
         //User
-        userTextView.setText( utenteLoggato.getUsername() );
+        userTextView.setText( utenteLoggato.getUsername());
+        //welcome text
+        welcomeTextView.setText( "Benvenuto " + utenteLoggato.getUsername() + "!" );
         //Password
         passwordTextView.setText( utenteLoggato.getPassword() );
         //Città
@@ -74,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
             btnGestioneUtenti.setVisibility(View.VISIBLE);
         }
 
-        /* Listners */
+        /* Listeners */
 
         //Pulsante logout
         btnLogout.setOnClickListener(new View.OnClickListener() {

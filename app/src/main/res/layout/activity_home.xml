@@ -30,7 +30,7 @@
                 android:layout_height="16dp"/>
 
             <!-- Welcome text -->
-            <TextView
+            <TextView android:id="@+id/welcome_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -153,9 +153,9 @@
                     <!-- Value -->
                     <TextView
                         android:id="@+id/user"
-                        android:layout_width="63dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Test"
+                        android:text="Username"
                         android:textColor="@color/black"
                         android:textSize="26dp" />
 
