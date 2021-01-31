@@ -11,13 +11,20 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.example.progettotnvandroid.model.UserList;
 import com.example.progettotnvandroid.model.Utente;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
+
 
 public class RegistrazioneActivity extends AppCompatActivity {
 
@@ -28,7 +35,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
     /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
     private Context myContext;
     private Activity myActivity;
-    private ConstraintLayout myCLayout;
+    private LinearLayout mainLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +58,10 @@ public class RegistrazioneActivity extends AppCompatActivity {
         myActivity = RegistrazioneActivity.this;
 
         // Get the widget reference from XML layout
-        myCLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        mainLinearLayout = (LinearLayout) findViewById(R.id.mainLinearLayout);
 
         // Set a click listener for CoordinatorLayout (layout di sfondo della nostra activity)
-        myCLayout.setOnClickListener(new View.OnClickListener() {
+        mainLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hideKeyboard(view);
@@ -66,6 +73,10 @@ public class RegistrazioneActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String inputUsername, inputPassword, inputConfermaPassword, inputCitta, inputDataNascita;
+
+                //nasconde tastiera al click
+                hideKeyboard(v);
+
                 inputUsername = username.getText().toString();
                 inputPassword = password.getText().toString();
                 inputConfermaPassword = confermaPassword.getText().toString();
@@ -76,7 +87,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                 Boolean formValido = validazioneStringheFormNuovoUtente(inputUsername, inputPassword,
                         inputConfermaPassword, inputCitta, inputDataNascita);
 
-                hideKeyboard(v);
+
 
                 //se sono stati riempiti tutti i campi dei form controllo che la data abbia un formato valido
                 if(formValido)
@@ -112,6 +123,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
         //se il campo username è vuoto
         if(inputUsername.length() == 0) {
             username.setError("Il campo non può esssere vuoto!");
+            return false;
+        }else{
+            username.setError(null);
+        }
+
+        //se lo username esiste già (deve essere univoco)
+        if(!(isUsernameUnivoco(inputUsername))) {
+            username.setError("Username non disponibile!");
             return false;
         }else{
             username.setError(null);
@@ -160,6 +179,20 @@ public class RegistrazioneActivity extends AppCompatActivity {
         return true;
     }
 
+    private boolean isUsernameUnivoco(String inputUsername) {
+
+        List<Utente> listaUtenti = UserList.getAllUtenti();
+
+        for (Utente utente : listaUtenti) {
+            //se lo username esiste già
+            if(utente.getUsername().equals(inputUsername))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private Date validazioneDataNascitaFormNuovoUtente(String inputDataNascita)
     {
         //conversione data nascita
@@ -177,11 +210,8 @@ public class RegistrazioneActivity extends AppCompatActivity {
      * Nasconde la tastiera al click della View passata in firma
      * @param view
      */
-    private void hideKeyboard(View view){
-        // Get the input method manager
-        InputMethodManager inputMethodManager = (InputMethodManager)
-                view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        // Hide the soft keyboard
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

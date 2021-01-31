@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Serializable serializedLoggedUser = intent.getSerializableExtra(LOGIN_ACTIVITY_PATH);
 
-        //per no avere errori nel caso non arrivi l'oggetto Donation
+        //per non avere errori nel caso non arrivi l'oggetto Utente
         if(serializedLoggedUser instanceof Utente){
             //non fare nulla
         }else{

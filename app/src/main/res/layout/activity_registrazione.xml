@@ -5,18 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrazioneActivity"
-    android:id="@+id/constraintLayout">
+    android:id="@+id/constraintRegistrazioneLayout">
+
 
     <!-- La pagina di registrazione deve avere la scroll view -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollViewLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="26dp">
+            android:padding="26dp"
+            android:id="@+id/mainLinearLayout">
 
             <!-- Titolo -->
             <TextView
