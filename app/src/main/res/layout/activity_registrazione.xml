@@ -157,12 +157,13 @@
                 android:id="@+id/btn_registrati"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/btn_green"
                 android:text="@string/btn_registrazione"
-                android:layout_gravity="center"
-                android:textSize="26dp"
+                android:padding="10dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="26dp" />
 
             <Space
                 android:layout_width="wrap_content"
