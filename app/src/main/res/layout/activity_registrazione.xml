@@ -4,18 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrazioneActivity">
+    tools:context=".RegistrazioneActivity"
+    android:id="@+id/constraintRegistrazioneLayout">
+
 
     <!-- La pagina di registrazione deve avere la scroll view -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollViewLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="26dp">
+            android:padding="26dp"
+            android:id="@+id/mainLinearLayout">
 
             <!-- Titolo -->
             <TextView
@@ -43,7 +47,8 @@
                 android:layout_height="20dp"/>
 
             <!-- Field user -->
-            <EditText android:id="@+id/username"
+            <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_username"/>
@@ -122,16 +127,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_data_di_nascita"
                 android:textColor="@color/black"
-                android:textSize="26dp"/>
+                android:textSize="26dp" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"/>
 
             <!-- Field data di nascita-->
-            <EditText android:id="@+id/data_di_nascita"
+            <EditText
+                android:id="@+id/data_di_nascita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:hint="@string/prompt_data_di_nascita"/>
 
             <Space
@@ -140,14 +147,16 @@
 
             <!-- Bottone registrati -->
             <Button
+                android:id="@+id/btn_registrati"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:backgroundTint="@color/btn_green"
                 android:text="@string/btn_registrazione"
-                android:layout_gravity="center"
-                android:textSize="26dp"
+                android:padding="10dp"
                 android:textAllCaps="false"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="26dp" />
 
             <Space
                 android:layout_width="wrap_content"

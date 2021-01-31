@@ -203,11 +203,8 @@ public class LoginActivity extends AppCompatActivity {
      * Nasconde la tastiera al click della View passata in firma
      * @param view
      */
-    private void hideKeyboard(View view){
-        // Get the input method manager
-        InputMethodManager inputMethodManager = (InputMethodManager)
-                view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        // Hide the soft keyboard
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

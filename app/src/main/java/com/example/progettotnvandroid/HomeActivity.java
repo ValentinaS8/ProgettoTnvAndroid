@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.progettotnvandroid.model.Utente;
@@ -20,7 +21,8 @@ import static com.example.progettotnvandroid.LoginActivity.LOGIN_ACTIVITY_PATH;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, testoAdmin;
+    TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, welcomeTextView;
+    LinearLayout testoAdmin;
     Button btnLogout, btnModificaPassword, btnGestioneUtenti;
 
     /* Model */
@@ -33,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
         /* Riferimenti widget */
         userTextView = findViewById(R.id.user);
+        welcomeTextView = findViewById(R.id.welcome_text);
         passwordTextView = findViewById(R.id.password);
         cittaTextView = findViewById(R.id.citta);
         dataNascitaTextView = findViewById(R.id.data_nascita);
@@ -45,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Serializable serializedLoggedUser = intent.getSerializableExtra(LOGIN_ACTIVITY_PATH);
 
-        //per no avere errori nel caso non arrivi l'oggetto Donation
+        //per non avere errori nel caso non arrivi l'oggetto Utente
         if(serializedLoggedUser instanceof Utente){
             //non fare nulla
         }else{
@@ -57,7 +60,9 @@ public class HomeActivity extends AppCompatActivity {
         /* valorizzazione dei widgets */
 
         //User
-        userTextView.setText( utenteLoggato.getUsername() );
+        userTextView.setText( utenteLoggato.getUsername());
+        //welcome text
+        welcomeTextView.setText( "Benvenuto " + utenteLoggato.getUsername() + "!" );
         //Password
         passwordTextView.setText( utenteLoggato.getPassword() );
         //Città
@@ -74,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
             btnGestioneUtenti.setVisibility(View.VISIBLE);
         }
 
-        /* Listners */
+        /* Listeners */
 
         //Pulsante logout
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         btnModificaPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goToModificaPasswordActivity();
             }
         });
 
@@ -99,10 +104,11 @@ public class HomeActivity extends AppCompatActivity {
         btnGestioneUtenti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                goToGestisciUtentiActivity();
             }
         });
     }
+
 
     @Override
     /**
@@ -120,4 +126,25 @@ public class HomeActivity extends AppCompatActivity {
                 LoginActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Reindirizzamento alla activity gestione utente
+     */
+    private void goToGestisciUtentiActivity() {
+
+        Intent intent = new Intent(HomeActivity.this,
+                GestisciUtentiActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Reindirizzamento alla activity modifica password
+     */
+    private void goToModificaPasswordActivity() {
+
+        Intent intent = new Intent(HomeActivity.this,
+                ModificaPasswordActivity.class);
+        startActivity(intent);
+    }
+
 }
