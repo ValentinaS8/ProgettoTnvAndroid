@@ -307,7 +307,9 @@
                 android:padding="10dp"
                 android:textSize="26dp"
                 android:textColor="@color/white"
-                android:layout_margin="12dp"/>
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"/>
 
             <!-- Bottone logout -->
 
@@ -321,7 +323,9 @@
                 android:textSize="26dp"
                 android:padding="10dp"
                 android:textColor="@color/white"
-                android:layout_margin="12dp"/>
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"/>
 
 
             <Button android:id="@+id/btn_modifica_password"
