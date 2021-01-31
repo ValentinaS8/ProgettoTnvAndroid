@@ -1,26 +1,26 @@
 package com.example.progettotnvandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import com.example.progettotnvandroid.model.UserList;
 import com.example.progettotnvandroid.model.Utente;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +37,12 @@ public class RegistrazioneActivity extends AppCompatActivity {
     private Activity myActivity;
     private LinearLayout mainLinearLayout;
 
+
+    //gestione date picker
+    DatePickerDialog datePicker;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +53,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         confermaPassword = findViewById(R.id.conferma_password);
         cittaProvenienza = findViewById(R.id.citta_di_provenienza);
-        dataNascita = findViewById(R.id.data_di_nascita);
         btn_registrati = findViewById(R.id.btn_registrati);
 
-        /***************************************************************************************************/
+        dataNascita = findViewById(R.id.data_di_nascita);
+        dataNascita.setInputType(InputType.TYPE_NULL);
+        DatePickerDialog datePicker;
+
+
+
         /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
 
         // Get the application context
@@ -67,7 +77,32 @@ public class RegistrazioneActivity extends AppCompatActivity {
                 hideKeyboard(view);
             }
         });
-        /*****************************************************************************************************/
+
+        //gestione date picker
+        dataNascita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    final Calendar cldr = Calendar.getInstance();
+                    int day = cldr.get(Calendar.DAY_OF_MONTH);
+                    int month = cldr.get(Calendar.MONTH);
+                    int year = cldr.get(Calendar.YEAR);
+
+                     DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrazioneActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+
+                                dataNascita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, year, month, day);
+
+                        datePickerDialog.show();
+                }
+        });
 
         btn_registrati.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,4 +249,6 @@ public class RegistrazioneActivity extends AppCompatActivity {
         InputMethodManager inputMethodManager =(InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+
 }
