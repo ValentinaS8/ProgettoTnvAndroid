@@ -30,7 +30,7 @@
                 android:layout_height="16dp"/>
 
             <!-- Welcome text -->
-            <TextView
+            <TextView android:id="@+id/welcome_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -42,76 +42,60 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"/>
 
+            <!-- Home section dati -->
+
+            <!-- admin logo -->
+            <LinearLayout android:id="@+id/text_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="right"
+                android:padding="3dp"
+                android:background="@color/teal_200"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/adminImageView"
+                    android:layout_width="25dp"
+                    android:gravity="right"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/icon_admin"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:textColor="@color/black"
+                    android:text="@string/home_admin_label"/>
 
 
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"/>
+
+            <!-- title section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <!-- Home section dati -->
+                <!-- title section-->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="match_parent"
                     android:text="@string/home_label_section_dati"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-                    <!--<TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home_admin_label"
-                        android:textColor="@color/black"
-                        android:visibility="visible"
-                        android:textStyle="bold"
-                        android:gravity="right"
-                        android:textSize="20dp"/>-->
-
-                    <TextView android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="right"
-                        android:textColor="@color/black"
-                        android:padding="4dp"
-                        android:visibility="gone"
-                        android:text="@string/home_admin_label"/>
-
-                    <!--<TextView android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:gravity="right"
-                        android:textColor="@color/black"
-                        android:padding="4dp"
-                        android:text="@string/home_admin_label"
-                        android:drawableStart="@drawable/icon_admin3"
-                        android:drawablePadding="2dp"/>-->
-
-
-                    <!--TODO icona admin-->
-
-<!--                </LinearLayout>-->
-
 
             </LinearLayout>
-
-
-
-
-
-
-
-
-
-
 
             <Space
                 android:layout_width="wrap_content"
@@ -136,10 +120,10 @@
                     <!-- Label -->
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/home_label_username"
                         android:textColor="@color/black"
-                        android:textSize="26dp"/>
+                        android:textSize="26dp" />
 
                 </LinearLayout>
 
@@ -150,12 +134,13 @@
                     android:orientation="vertical">
 
                     <!-- Value -->
-                    <TextView android:id="@+id/user"
+                    <TextView
+                        android:id="@+id/user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Marco"
+                        android:text="Username"
                         android:textColor="@color/black"
-                        android:textSize="26dp"/>
+                        android:textSize="26dp" />
 
                 </LinearLayout>
 
@@ -311,7 +296,7 @@
 
             <!-- Bottone gestisci utenti -->
 
-            <Button
+            <Button android:id="@+id/btn_gestisci_utenti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/btn_green"
@@ -319,12 +304,14 @@
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:visibility="gone"
+                android:padding="10dp"
                 android:textSize="26dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:layout_margin="12dp"/>
 
             <!-- Bottone logout -->
 
-            <Button
+            <Button android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/btn_green"
@@ -333,10 +320,11 @@
                 android:textAllCaps="false"
                 android:textSize="26dp"
                 android:padding="10dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:layout_margin="12dp"/>
 
 
-            <Button
+            <Button android:id="@+id/btn_modifica_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_modifica_password"

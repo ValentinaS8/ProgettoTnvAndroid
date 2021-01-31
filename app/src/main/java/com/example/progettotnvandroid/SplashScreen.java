@@ -16,12 +16,11 @@ public class SplashScreen extends AppCompatActivity {
         Thread background = new Thread(){
             public void run(){
                 try {
-                    sleep(5000); //5s = 50000
+                    sleep(1000); //1s = 1000
 
                     //ora possiamo passare alla main activity
                     Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(intent);
-
 
                     finish();
 

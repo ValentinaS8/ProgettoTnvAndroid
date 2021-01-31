@@ -4,10 +4,17 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/listViewUtenti"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollViewLayout">
+
+        <ListView
+            android:id="@+id/listViewUtenti"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+    </ScrollView>
 
 </LinearLayout>

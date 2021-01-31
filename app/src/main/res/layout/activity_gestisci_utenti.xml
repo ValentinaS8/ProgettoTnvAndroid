@@ -7,10 +7,4 @@
     android:orientation="vertical"
     tools:context=".GestisciUtentiActivity">
 
-<!--    <ListView
-        android:id="@+id/listViewUtenti"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </ListView>-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

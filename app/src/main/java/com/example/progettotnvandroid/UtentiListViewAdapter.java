@@ -28,9 +28,13 @@ public class UtentiListViewAdapter extends ArrayAdapter<Utente> {
         TextView nome = (TextView)convertView.findViewById(R.id.textViewName);
         TextView numero = (TextView)convertView.findViewById(R.id.textViewNumber);
 
-        Utente c = getItem(position);
-        nome.setText("abc dfg");
+        //TODO giochini
+
+        Utente u = getItem(position);
+        nome.setText(u.getUsername());
         numero.setText("123456");
+
+
         return convertView;
     }
 }

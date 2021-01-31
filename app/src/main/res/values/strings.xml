@@ -16,6 +16,19 @@
     <string name="home_label_password">Password:</string>
     <string name="home_btn_logout">Logout</string>
     <string name="btn_modifica_password"><u>Modifica password</u></string>
-    <string name="home_admin_label">Admin</string>
+    <string name="home_admin_label">Sei un Admin</string>
     <string name="home_btn_gestisci_utenti">Gestisci utenti</string>
+    <string name="registrazione_title">Registrazione</string>
+    <string name="label_conferma_password">Conferma password</string>
+    <string name="label_citta_di_provenienza">Città di provenienza</string>
+    <string name="prompt_citta_di_provenienza">Città di provenienza</string>
+    <string name="label_data_di_nascita">Data di nascita</string>
+    <string name="prompt_data_di_nascita">Data di nascita</string>
+    <string name="btn_registrazione">Registrati</string>
+    <string name="modifica_password_title">Modifica password</string>
+    <string name="label_nuova_password">Nuova password</string>
+    <string name="btn_aggiorna_password">Aggiorna password</string>
+    <string name="modifica_password_label_username">Username:</string>
+    <string name="modifica_password_label_password">Password:</string>
+    <string name="abilita_admin">Abilita Admin</string>
 </resources>
