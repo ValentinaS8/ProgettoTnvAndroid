@@ -81,7 +81,8 @@
             android:padding="10dp"
             android:layout_gravity="center"
             android:textSize="26dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_margin="12dp"/>
 
         <Space
             android:layout_width="wrap_content"
