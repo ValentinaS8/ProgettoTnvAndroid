@@ -77,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
         /* Gestione admin */
         if(utenteLoggato.isAdmin()){
             testoAdmin.setVisibility(View.VISIBLE);
-            btnGestioneUtenti.setVisibility(View.VISIBLE);
+            //btnGestioneUtenti.setVisibility(View.VISIBLE);
         }
 
         /* Listeners */
