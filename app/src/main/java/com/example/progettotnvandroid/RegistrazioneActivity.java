@@ -100,6 +100,9 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             }
                         }, year, month, day);
 
+                        //Settiamo la data massima selezionabile - posso impostare una data inferiore alla data odierna
+                        datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
+
                         datePickerDialog.show();
                 }
         });
