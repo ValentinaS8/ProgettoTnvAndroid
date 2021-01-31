@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     Button btnAccedi, btnRegistrati;
 
-    //PATH Activity
-    public final static String LOGIN_ACTIVITY_PATH = "com.example.progettotnvandroid.LoginActivity";
+    //PATH classe utente
+    public final static String UTENTE_PATH = "com.example.progettotnvandroid.model.Utente";
 
     /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
     private Context myContext;
@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         myCLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 hideKeyboard(view);
             }
         });
@@ -136,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     private void goToHomeActivity(Utente utenteLoggato) {
         Intent intent = new Intent(LoginActivity.this,
                 HomeActivity.class);
-        intent.putExtra(LOGIN_ACTIVITY_PATH, utenteLoggato);
+        intent.putExtra(UTENTE_PATH, utenteLoggato);
         startActivity(intent);
     }
 

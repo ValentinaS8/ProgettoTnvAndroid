@@ -12,21 +12,23 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.progettotnvandroid.model.Utente;
 
 import java.io.Serializable;
 
-import static com.example.progettotnvandroid.LoginActivity.LOGIN_ACTIVITY_PATH;
+import static com.example.progettotnvandroid.LoginActivity.UTENTE_PATH;
 
 public class ModificaPasswordActivity extends AppCompatActivity {
 
     //TODO-AGGIUNGERE CONTROLLO SU TASTIERA A SCOMPARSA SUI BOTTONI
 
     EditText nuovaPassword, confermaPassword;
+    TextView userTextView, vecchiaPasswordTextView;
     Button btn_aggiornaPassword, btn_home;
-    Utente utente;
+    Utente utenteLoggato = null;
 
     /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
     private Context myContext;
@@ -38,15 +40,25 @@ public class ModificaPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifica_password);
 
+        //recupero dati dalla schermata home
+        Intent intent = getIntent();
+        Serializable obj = intent.getSerializableExtra(UTENTE_PATH);
+        utenteLoggato = (Utente) obj;
+
         //recupero gli id dei widget
         nuovaPassword = findViewById(R.id.nuova_password);
         confermaPassword = findViewById(R.id.conferma_password);
         btn_aggiornaPassword = findViewById(R.id.btn_aggiorna_password);
         btn_home = findViewById(R.id.btn_home);
+        userTextView = findViewById(R.id.user);
+        vecchiaPasswordTextView = findViewById(R.id.password);
 
-        //recupero dati dalla schermata home
-        Intent intent = getIntent();
-        Serializable obj = intent.getSerializableExtra(LOGIN_ACTIVITY_PATH);
+        /* valorizzazione dei widgets */
+
+        //User
+        userTextView.setText(utenteLoggato.getUsername());
+        vecchiaPasswordTextView.setText(utenteLoggato.getPassword());
+
 
         /***************************************************************************************************/
         /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
@@ -71,64 +83,105 @@ public class ModificaPasswordActivity extends AppCompatActivity {
         btn_aggiornaPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                utente = (Utente) obj;
 
+                hideKeyboard(v);
                 //se i campi sono validi
-                if(validazioneFormCambiaPassword(utente))
-                {
-                    //fai cambiare la password
+                if (validazioneFormCambiaPassword(utenteLoggato)) {
+                    //salva la nuova password nel profilo dell'utente
+                    utenteLoggato.setPassword(nuovaPassword.getText().toString());
+                    //Conferma di modifica password
+                    Toast toast = Toast.makeText(
+                            getApplicationContext(),
+                            "Password modificata correttamente!",
+                            Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
                 }
             }
         });
+
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+                goToHomeActivity(utenteLoggato);
+            }
+        });
+
     }
 
-    private boolean validazioneFormCambiaPassword(Utente utente) {
+    private boolean validazioneFormCambiaPassword(Utente utenteLoggato) {
+
+        String campoNuovaPassword = nuovaPassword.getText().toString();
+        String passwordPrecedente = utenteLoggato.getPassword();
+        String campoConfermaPassword;
 
         //se la nuova password inserita è uguale a quella precedente
-        if(nuovaPassword.getText().equals(utente.getPassword())) {
+        if (campoNuovaPassword.equals(passwordPrecedente)) {
             confermaPassword.setError("Inserire una password diversa dalla precedente!");
             return false;
-        }else{
+        } else {
             confermaPassword.setError(null);
         }
 
         //se il campo nuova password è vuoto
-        if(nuovaPassword.getText().length() == 0) {
+        if (nuovaPassword.getText().length() == 0) {
             nuovaPassword.setError("Il campo non può esssere vuoto!");
             return false;
-        }else{
+        } else {
             nuovaPassword.setError(null);
         }
 
         //se il campo conferma password è vuoto
-        if(confermaPassword.getText().length() == 0) {
+        if (confermaPassword.getText().length() == 0) {
             confermaPassword.setError("Il campo non può esssere vuoto!");
             return false;
-        }else{
+        } else {
             confermaPassword.setError(null);
         }
 
         //se le password nei 2 campi non coincidono
-        if(!(nuovaPassword.getText().equals(confermaPassword.getText()))) {
+
+        /*faccio un nuovo assegnamento di "campoNuovaPassword"
+        perchè la password potrebbe essere stata cambiata
+        più volte all'interno della stessa sessione*/
+        campoNuovaPassword = nuovaPassword.getText().toString();
+        campoConfermaPassword = confermaPassword.getText().toString();
+
+
+        if (!(campoNuovaPassword.equals(campoConfermaPassword))) {
             confermaPassword.setError("Le password non coincidono!");
             return false;
-        }else{
+        } else {
             confermaPassword.setError(null);
         }
 
         //validazione ok
         return true;
+
     }
 
     /**
+     * Reindirizzamento alla HomeActivity
+     *
+     * @param utenteLoggato
+     */
+    private void goToHomeActivity(Utente utenteLoggato) {
+        Intent intent = new Intent(ModificaPasswordActivity.this,
+                HomeActivity.class);
+        intent.putExtra(UTENTE_PATH, utenteLoggato);
+        startActivity(intent);
+    }
+
+
+    /**
      * Nasconde la tastiera al click della View passata in firma
+     *
      * @param view
      */
-    private void hideKeyboard(View view){
-        // Get the input method manager
-        InputMethodManager inputMethodManager = (InputMethodManager)
-                view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        // Hide the soft keyboard
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 }

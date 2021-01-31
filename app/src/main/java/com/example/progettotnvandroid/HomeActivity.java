@@ -14,16 +14,16 @@ import com.example.progettotnvandroid.model.Utente;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
+import static com.example.progettotnvandroid.LoginActivity.UTENTE_PATH;
 
-import static com.example.progettotnvandroid.LoginActivity.LOGIN_ACTIVITY_PATH;
 
 public class HomeActivity extends AppCompatActivity {
 
     TextView userTextView, passwordTextView, cittaTextView, dataNascitaTextView, welcomeTextView;
     LinearLayout testoAdmin;
     Button btnLogout, btnModificaPassword, btnGestioneUtenti;
+
 
     /* Model */
     Utente utenteLoggato;
@@ -46,7 +46,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //recupero dell'intent
         Intent intent = getIntent();
-        Serializable serializedLoggedUser = intent.getSerializableExtra(LOGIN_ACTIVITY_PATH);
+        Serializable serializedLoggedUser = intent.getSerializableExtra(UTENTE_PATH);
+
 
         //per non avere errori nel caso non arrivi l'oggetto Utente
         if(serializedLoggedUser instanceof Utente){
@@ -96,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         btnModificaPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 goToModificaPasswordActivity();
             }
         });
@@ -104,6 +106,7 @@ public class HomeActivity extends AppCompatActivity {
         btnGestioneUtenti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 goToGestisciUtentiActivity();
             }
         });
@@ -115,6 +118,7 @@ public class HomeActivity extends AppCompatActivity {
      * Evita di tornare all'activity precedente con il tasto indietro
      */
     public void onBackPressed() {
+
         return;
     }
 
@@ -144,6 +148,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent intent = new Intent(HomeActivity.this,
                 ModificaPasswordActivity.class);
+        intent.putExtra(UTENTE_PATH, utenteLoggato);
         startActivity(intent);
     }
 
