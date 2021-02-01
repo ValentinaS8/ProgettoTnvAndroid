@@ -95,8 +95,14 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                dataNascita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                //deprecata
+                                Date selectedDate = new Date(year, monthOfYear, dayOfMonth);
 
+                                if(selectedDate.before(new Date())){
+                                    dataNascita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                }else{
+                                    //non settare la data
+                                }
                             }
                         }, year, month, day);
 
