@@ -24,8 +24,6 @@ import static com.example.progettotnvandroid.LoginActivity.UTENTE_PATH;
 
 public class ModificaPasswordActivity extends AppCompatActivity {
 
-    //TODO-AGGIUNGERE CONTROLLO SU TASTIERA A SCOMPARSA SUI BOTTONI
-
     EditText nuovaPassword, confermaPassword;
     TextView userTextView, vecchiaPasswordTextView;
     Button btn_aggiornaPassword, btn_home;

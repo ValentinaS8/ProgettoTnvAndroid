@@ -28,7 +28,7 @@ public class UtentiListViewAdapter extends ArrayAdapter<Utente> {
         TextView nome = (TextView)convertView.findViewById(R.id.textViewName);
         TextView numero = (TextView)convertView.findViewById(R.id.textViewNumber);
 
-        //TODO giochini
+        //TODO da completare gestione listview
 
         Utente u = getItem(position);
         nome.setText(u.getUsername());
