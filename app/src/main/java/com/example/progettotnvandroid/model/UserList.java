@@ -43,5 +43,23 @@ public class UserList {
         return new ArrayList<>(utentiList);
     }
 
+    /**
+     * Controlla se lo username è già stato utilizzato
+      * @param inputUsername
+     * @return
+     */
+    public static boolean isUsernameDisponibile(String inputUsername) {
+
+        List<Utente> listaUtenti = UserList.getAllUtenti();
+
+        for (Utente utente : listaUtenti) {
+            //se lo username esiste già
+            if(utente.getUsername().equals(inputUsername))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

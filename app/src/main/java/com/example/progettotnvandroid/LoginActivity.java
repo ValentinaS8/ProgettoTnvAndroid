@@ -69,15 +69,9 @@ public class LoginActivity extends AppCompatActivity {
 
         /* Model */
 
-        String adminBirthdayDateString="01/01/1970";
-        Date adminBirthdayDate= null;
-        try {
-            adminBirthdayDate = new SimpleDateFormat("dd/MM/yyyy").parse(adminBirthdayDateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        UserList.addUtente(new Utente("admin", "admin", "Pompu", adminBirthdayDate, true));
 
+
+        addAdmin();
 
         /* Listeners */
 
@@ -120,6 +114,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Aggiunge l'admin col controllo di univocità
+     */
+    private void addAdmin() {
+        if(UserList.isUsernameDisponibile("admin"))
+        {
+            String adminBirthdayDateString="01/01/1970";
+            Date adminBirthdayDate= null;
+            try {
+                adminBirthdayDate = new SimpleDateFormat("dd/MM/yyyy").parse(adminBirthdayDateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            UserList.addUtente(new Utente("admin", "admin", "Pompu", adminBirthdayDate, true));
+        }
+    }
 
 
     @Override

@@ -167,7 +167,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         }
 
         //se lo username esiste già (deve essere univoco)
-        if(!(isUsernameUnivoco(inputUsername))) {
+        if(!(UserList.isUsernameDisponibile(inputUsername))) {
             username.setError("Username non disponibile!");
             return false;
         }else{
@@ -217,19 +217,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean isUsernameUnivoco(String inputUsername) {
 
-        List<Utente> listaUtenti = UserList.getAllUtenti();
-
-        for (Utente utente : listaUtenti) {
-            //se lo username esiste già
-            if(utente.getUsername().equals(inputUsername))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 
     private Date validazioneDataNascitaFormNuovoUtente(String inputDataNascita)
     {
