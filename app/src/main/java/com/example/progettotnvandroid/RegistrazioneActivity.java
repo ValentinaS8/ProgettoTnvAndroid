@@ -8,12 +8,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.progettotnvandroid.model.UserList;
 import com.example.progettotnvandroid.model.Utente;
@@ -95,13 +97,17 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                //deprecata
-                                Date selectedDate = new Date(year, monthOfYear, dayOfMonth);
+                                Date selectedDate = parseDate(year + "-" + monthOfYear+1 + "-" + dayOfMonth);
 
                                 if(selectedDate.before(new Date())){
                                     dataNascita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                                 }else{
-                                    //non settare la data
+                                    Toast toast = Toast.makeText(
+                                            getApplicationContext(),
+                                            "Data non valida!",
+                                            Toast.LENGTH_LONG);
+                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                    toast.show();
                                 }
                             }
                         }, year, month, day);
@@ -247,5 +253,16 @@ public class RegistrazioneActivity extends AppCompatActivity {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-
+    /**
+     * String to date
+     * @param date
+     * @return
+     */
+    public static Date parseDate(String date) {
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        } catch (ParseException e) {
+            return null;
+        }
+    }
 }
