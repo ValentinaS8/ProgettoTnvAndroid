@@ -14,8 +14,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/android2" />
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/splash_img" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
