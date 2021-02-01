@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class ModificaPasswordActivity extends AppCompatActivity {
     /* Gestione della chiusura tastiera quando sono su una EditText e clicco sul layout globale */
     private Context myContext;
     private Activity myActivity;
-    private ConstraintLayout myCLayout;
+    private LinearLayout myMainLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +69,10 @@ public class ModificaPasswordActivity extends AppCompatActivity {
         myActivity = ModificaPasswordActivity.this;
 
         // Get the widget reference from XML layout
-        myCLayout = (ConstraintLayout) findViewById(R.id.constraint_layout);
+        myMainLinearLayout = findViewById(R.id.mainLinearLayout);
 
         // Set a click listener for CoordinatorLayout (layout di sfondo della nostra activity)
-        myCLayout.setOnClickListener(new View.OnClickListener() {
+        myMainLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 hideKeyboard(view);
