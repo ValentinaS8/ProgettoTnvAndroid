@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.progettotnvandroid.model.UserList;
 import com.example.progettotnvandroid.model.Utente;
 
 import java.io.Serializable;
@@ -87,7 +88,9 @@ public class ModificaPasswordActivity extends AppCompatActivity {
                 //se i campi sono validi
                 if (validazioneFormCambiaPassword(utenteLoggato)) {
                     //salva la nuova password nel profilo dell'utente
-                    utenteLoggato.setPassword(nuovaPassword.getText().toString());
+                    Utente profiloUtente = UserList.getUtenteById(utenteLoggato.getId());
+                    profiloUtente.setPassword(nuovaPassword.getText().toString());
+
                     //Conferma di modifica password
                     Toast toast = Toast.makeText(
                             getApplicationContext(),

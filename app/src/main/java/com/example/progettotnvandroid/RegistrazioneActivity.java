@@ -97,7 +97,7 @@ public class RegistrazioneActivity extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                Date selectedDate = parseDate(year + "-" + monthOfYear+1 + "-" + dayOfMonth);
+                                Date selectedDate = parseDate(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
 
                                 if(selectedDate.before(new Date())){
                                     dataNascita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
